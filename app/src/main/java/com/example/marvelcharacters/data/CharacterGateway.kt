@@ -8,7 +8,6 @@ interface CharacterGateway {
     @GET("/v1/public/characters")
     suspend fun getCharacters(): CharacterResponse
 
-
     @GET("/v1/public/characters/{characterId}")
     suspend fun getCharacter(
         @Path("characterId") characterId: Int
