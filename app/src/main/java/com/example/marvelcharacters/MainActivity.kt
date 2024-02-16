@@ -14,6 +14,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.marvelcharacters.ui.theme.MarvelCharactersTheme
 import com.example.marvelcharacters.userInterface.detail.DetailsStep.SecondaryStep
 import com.example.marvelcharacters.userInterface.home.InitialStep.FirstStep
+import com.example.marvelcharacters.userInterface.list.ListStep
+import com.example.marvelcharacters.userInterface.list.ListStep.ListStep
 
 class MainActivity : ComponentActivity() {
 
@@ -27,14 +29,14 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    NasaPic()
+                    MarvelCharacters()
                 }
             }
         }
     }
 
     @Composable
-    fun NasaPic() {
+    fun MarvelCharacters() {
         val navController = rememberNavController()
 
         NavHost(
@@ -45,7 +47,10 @@ class MainActivity : ComponentActivity() {
             composable("initialStep") {
                 FirstStep(navController)
             }
-            composable("secondaryStep") {
+            composable("listStep") {
+                ListStep(navController)
+            }
+            composable("detailsStep") {
                 SecondaryStep(navController)
             }
         }

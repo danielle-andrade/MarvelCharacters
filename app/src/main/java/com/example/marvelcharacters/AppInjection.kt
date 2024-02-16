@@ -1,9 +1,11 @@
 package com.example.marvelcharacters
 
 import com.example.marvelcharacters.data.CharacterGateway
-import com.example.marvelcharacters.data.CharacterService
+import com.example.marvelcharacters.data.CharacterRepository
 import com.example.marvelcharacters.data.MarvelInterceptor
+import com.example.marvelcharacters.domain.CharacterService
 import com.example.marvelcharacters.userInterface.detail.DetailViewModel
+import com.example.marvelcharacters.userInterface.list.ListViewModel
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -51,17 +53,21 @@ object AppInjection {
             retrofit.create(CharacterGateway::class.java)
         }
 
-        bindSingleton{
-            val gat: CharacterGateway = instance()
-        }
-
         bindSingleton<CharacterService> {
-            CharacterService()
+            CharacterRepository(
+                gateway = instance(),
+            )
         }
 
         bind<DetailViewModel>() with provider {
             DetailViewModel(
                 service = instance(),
+            )
+        }
+
+        bind<ListViewModel>() with provider {
+            ListViewModel(
+                service = instance()
             )
         }
     }

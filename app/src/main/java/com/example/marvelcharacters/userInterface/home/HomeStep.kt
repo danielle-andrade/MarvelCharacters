@@ -23,25 +23,19 @@ object InitialStep : ComponentActivity() {
 
     @Composable
     fun FirstStep(navController: NavController) {
-//        Image(
-//            painter = painterResource(id = R.drawable.big_moon),
-//            contentDescription = null,
-//            contentScale = ContentScale.FillBounds,
-//        )
+        Image(
+            painter = painterResource(id = R.drawable.marvel),
+            contentDescription = null,
+            contentScale = ContentScale.FillBounds,
+        )
         Column(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text(
-                modifier = Modifier.padding(vertical = 50.dp),
-                text = "MARVEL",
-                fontSize = 40.sp,
-                color = Color.White
-            )
             Spacer(modifier = Modifier.weight(1f))
             Button(
                 modifier = Modifier.padding(vertical = 50.dp),
-                onClick = { navController.navigate("secondaryStep") }
+                onClick = { navController.navigate("listStep") }
             ) {
                 Text("click to see")
             }
