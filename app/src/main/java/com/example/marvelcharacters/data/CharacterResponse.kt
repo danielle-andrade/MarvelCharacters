@@ -28,7 +28,8 @@ data class OneCharacterResponse(
     val name: String,
     val description: String,
     val thumbnail: ThumbnailResponse,
-) { fun toDomainChar() =
+) {
+    fun toDomainChar() =
     Character(
         id = id,
         name = name,
