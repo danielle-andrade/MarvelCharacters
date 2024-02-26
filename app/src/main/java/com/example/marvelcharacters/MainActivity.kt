@@ -31,31 +31,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                //    MarvelCharacters()
                     Navigator(InitialStep())
                 }
             }
         }
-    }
-
-    @Composable
-    fun MarvelCharacters() {
-//        val navController = rememberNavController()
-//
-//        NavHost(
-//            navController = navController,
-//            startDestination = "initialStep"
-//        )
-//        {
-//            composable("initialStep") {
-//                FirstStep(navController)
-//            }
-//            composable("listStep") {
-//                ListStep(navController)
-//            }
-//            composable("detailsStep/{characterId}") {backStackEntry ->
-//                SecondaryStep(navController)
-//            }
-//        }
     }
 }
