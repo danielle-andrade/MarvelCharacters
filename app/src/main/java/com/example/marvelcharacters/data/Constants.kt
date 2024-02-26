@@ -14,11 +14,4 @@ object Constants {
         val md = MessageDigest.getInstance("MD5")
         return BigInteger(1, md.digest(input.toByteArray())).toString(16).padStart(32, '0')
     }
-
-    object AppModuleKey {
-        const val API_KEY = "apikey"
-        const val TIMESTAMP = "ts"
-        const val HASH_KEY = "hash"
-    }
-
 }

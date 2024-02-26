@@ -3,8 +3,11 @@ package com.example.marvelcharacters.data
 import com.example.marvelcharacters.data.Constants.timestamp
 import okhttp3.Interceptor
 import okhttp3.Response
-
-val constants = Constants
+/**
+ * Interceptors are a powerful mechanism that can monitor, rewrite, and retry calls.
+ * são uma classe especial do Retrofit responsáveis por interceptar os requests e adicionar headers e
+ * query params de forma automática, para todos os requests.
+ * */
 class MarvelInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val newUrl =

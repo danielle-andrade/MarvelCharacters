@@ -3,6 +3,7 @@ package com.example.marvelcharacters
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -11,11 +12,12 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import cafe.adriel.voyager.navigator.Navigator
 import com.example.marvelcharacters.ui.theme.MarvelCharactersTheme
-import com.example.marvelcharacters.userInterface.detail.DetailsStep.SecondaryStep
-import com.example.marvelcharacters.userInterface.home.InitialStep.FirstStep
+import com.example.marvelcharacters.userInterface.detail.DetailViewModel
+import com.example.marvelcharacters.userInterface.detail.DetailsStep
+import com.example.marvelcharacters.userInterface.home.InitialStep
 import com.example.marvelcharacters.userInterface.list.ListStep
-import com.example.marvelcharacters.userInterface.list.ListStep.ListStep
 
 class MainActivity : ComponentActivity() {
 
@@ -29,7 +31,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MarvelCharacters()
+                //    MarvelCharacters()
+                    Navigator(InitialStep())
                 }
             }
         }
@@ -37,22 +40,22 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun MarvelCharacters() {
-        val navController = rememberNavController()
-
-        NavHost(
-            navController = navController,
-            startDestination = "initialStep"
-        )
-        {
-            composable("initialStep") {
-                FirstStep(navController)
-            }
-            composable("listStep") {
-                ListStep(navController)
-            }
-            composable("detailsStep") {
-                SecondaryStep(navController)
-            }
-        }
+//        val navController = rememberNavController()
+//
+//        NavHost(
+//            navController = navController,
+//            startDestination = "initialStep"
+//        )
+//        {
+//            composable("initialStep") {
+//                FirstStep(navController)
+//            }
+//            composable("listStep") {
+//                ListStep(navController)
+//            }
+//            composable("detailsStep/{characterId}") {backStackEntry ->
+//                SecondaryStep(navController)
+//            }
+//        }
     }
 }

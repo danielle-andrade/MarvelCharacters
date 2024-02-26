@@ -1,5 +1,8 @@
 package com.example.marvelcharacters
 
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.SavedStateHandle
 import com.example.marvelcharacters.data.CharacterGateway
 import com.example.marvelcharacters.data.CharacterRepository
 import com.example.marvelcharacters.data.MarvelInterceptor
@@ -12,10 +15,14 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import org.kodein.di.DI
 import org.kodein.di.bind
+import org.kodein.di.bindFactory
+import org.kodein.di.bindProvider
 import org.kodein.di.bindSingleton
 import org.kodein.di.instance
 import org.kodein.di.provider
+import org.kodein.di.singleton
 import retrofit2.Retrofit
+import kotlin.math.sin
 
 object AppInjection {
     private const val MODULE_NAME = "app"
@@ -59,14 +66,14 @@ object AppInjection {
             )
         }
 
-        bind<DetailViewModel>() with provider {
-            DetailViewModel(
+        bind<ListViewModel>() with provider {
+            ListViewModel(
                 service = instance(),
             )
         }
 
-        bind<ListViewModel>() with provider {
-            ListViewModel(
+        bindProvider<DetailViewModel> {
+            DetailViewModel(
                 service = instance()
             )
         }
