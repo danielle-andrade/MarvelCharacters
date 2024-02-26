@@ -12,8 +12,8 @@ import kotlinx.coroutines.launch
 class ListViewModel(
     private val service: CharacterService,
 ): ScreenModel {
-    suspend fun getCharacters(): List<Character>
-         = service.getListCharacters()
+    suspend fun getCharacters(): List<Character> =
+        service.getListCharacters()
 
     val getList: MutableState<List<Character>> = mutableStateOf(emptyList())
 
