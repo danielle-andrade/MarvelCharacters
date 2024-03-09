@@ -3,6 +3,9 @@ package com.example.marvelcharacters.domain
 
 
 data class ListCharacter(
+    val offset: Int,
+    val limit: Int,
+    val total: Int,
     val characters: List<Character>
 )
 data class Character(

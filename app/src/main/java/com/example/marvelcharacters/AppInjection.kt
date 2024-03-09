@@ -15,15 +15,11 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import org.kodein.di.DI
 import org.kodein.di.bind
-import org.kodein.di.bindFactory
 import org.kodein.di.bindProvider
 import org.kodein.di.bindSingleton
 import org.kodein.di.instance
 import org.kodein.di.provider
-import org.kodein.di.singleton
 import retrofit2.Retrofit
-import kotlin.math.sin
-
 object AppInjection {
     private const val MODULE_NAME = "app"
 
@@ -69,6 +65,7 @@ object AppInjection {
         bind<ListViewModel>() with provider {
             ListViewModel(
                 service = instance(),
+                gateway = instance()
             )
         }
 

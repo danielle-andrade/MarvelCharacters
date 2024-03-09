@@ -15,9 +15,15 @@ data class CharacterResponse(
 )
 @Serializable
 data class CharacterData(
+    val offset: Int,
+    val limit: Int,
+    val total: Int,
     val results: List<OneCharacterResponse>
 ) {
     fun toDomain() = ListCharacter(
+        offset = offset,
+        limit = limit,
+        total = total,
         characters = results.map { it.toDomainChar() }
     )
 }
